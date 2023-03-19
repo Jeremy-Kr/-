@@ -144,7 +144,7 @@ const Question = ({ question, idx }: any) => {
                   .map((answer, index) => (
                     <div
                       key={index}
-                      className="cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100"
+                      className="cursor-copy break-keep rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100"
                       onClick={() => {
                         navigator.clipboard.writeText(answer);
                         toast(
