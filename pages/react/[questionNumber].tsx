@@ -100,7 +100,7 @@ const Question = ({ question, idx }: any) => {
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             rows={4}
-            className="my-5 w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+            className="my-5 w-full rounded-md border-gray-300 p-4 shadow-sm focus:border-black focus:ring-black"
             placeholder={"답변을 입력 해 주세요."}
           />
           {!loading && (

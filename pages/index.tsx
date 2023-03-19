@@ -1,25 +1,66 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import { useEffect, useState } from "react";
+import FRONT_TECH_QUESTIONS from "@/utils/QUESTION";
+import { DEFAULT_MIN_VERSION } from "tls";
+import Link from "next/link";
 
 const Home: NextPage = () => {
-  const router = useRouter();
+  const [page, setPage] = useState(1);
+  const [questions, setQuestions] = useState(FRONT_TECH_QUESTIONS);
 
   useEffect(() => {
-    router.push("/react/1");
-  }, []);
+    setQuestions(FRONT_TECH_QUESTIONS.slice((page - 1) * 10, page * 10));
+  }, [page]);
+
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   router.push("/react/1");
+  // }, []);
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center py-2">
+    <>
       <Head>
         <title>기술 면접 준비</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-20"></main>
-    </div>
+      <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center py-2">
+        <div className="w-full max-w-xl">
+          <h1 className="text-center text-3xl font-bold">
+            React 문제 바로가기
+          </h1>
+          {questions.map((question, idx) => (
+            <Link
+              href={`/react/${(page - 1) * 10 + idx + 1}`}
+              key={question}
+              className="mt-10 flex items-center space-x-3"
+            >
+              <p className="text-left font-medium">{`${
+                (page - 1) * 10 + idx + 1
+              }. ${question}`}</p>
+            </Link>
+          ))}
+          <div className="mt-10 flex justify-center">
+            <button
+              className="rounded-md bg-slate-900 px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+            >
+              이전
+            </button>
+            <button
+              className="ml-2 rounded-md bg-slate-900 px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+              onClick={() => setPage(page + 1)}
+              disabled={page === 5}
+            >
+              다음
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
