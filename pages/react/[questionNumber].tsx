@@ -72,6 +72,8 @@ const Question = ({ question, idx }: any) => {
     if (idx === 1) {
       return;
     }
+    setAnswer("");
+    setGeneratedAnswer("");
     router.push(`/react/${idx - 1}`);
   };
 
@@ -79,6 +81,8 @@ const Question = ({ question, idx }: any) => {
     if (idx === FRONT_TECH_QUESTIONS.length) {
       return;
     }
+    setAnswer("");
+    setGeneratedAnswer("");
     router.push(`/react/${idx + 1}`);
   };
 
