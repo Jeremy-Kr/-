@@ -194,7 +194,6 @@ const Question = ({ question, idx }: any) => {
 export default Question;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  console.log(context);
   const idx = Number(context.params?.questionNumber);
   const question = FRONT_TECH_QUESTIONS[idx - 1];
 
