@@ -11,7 +11,7 @@
 이 레포를 알아서 다운받으신 다음 해당 디렉토리에서
 
 ```
-npm i or yarn or pnpm
+npm i or yarn or pnpm install
 ```
 
 으로 패키지들을 먼저 설치 해 주시고요
