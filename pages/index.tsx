@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
-import FRONT_TECH_QUESTIONS from "@/utils/QUESTION";
 import Link from "next/link";
 
 const Home: NextPage = () => {

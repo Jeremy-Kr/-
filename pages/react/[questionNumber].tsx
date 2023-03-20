@@ -96,7 +96,7 @@ const Question = ({ question, idx }: QuestionProps) => {
   };
 
   return (
-    <div className="mx-auto flex h-[85vh] max-w-5xl flex-col items-center justify-center py-2">
+    <div className="mx-auto flex min-h-[85vh] max-w-5xl flex-col items-center justify-center py-2">
       <Head>
         <title>기술 면접 준비</title>
         <link rel="icon" href="/favicon.ico" />
