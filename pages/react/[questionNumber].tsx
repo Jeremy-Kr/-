@@ -1,12 +1,20 @@
 import FRONT_TECH_QUESTIONS from "@/utils/QUESTION";
+
 import type { GetServerSidePropsContext } from "next";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import LoadingDots from "../../components/LoadingDots";
 
-const Question = ({ question, idx }: any) => {
+import LoadingDots from "@/components/LoadingDots";
+
+interface QuestionProps {
+  question: string;
+  idx: number;
+}
+
+const Question = ({ question, idx }: QuestionProps) => {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
   const [generatedAnswer, setGeneratedAnswer] = useState<String>("");
@@ -15,7 +23,7 @@ const Question = ({ question, idx }: any) => {
 
   const router = useRouter();
 
-  const scrollToBios = () => {
+  const scrollToAnswer = () => {
     if (answerRef.current !== null) {
       answerRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -30,6 +38,7 @@ const Question = ({ question, idx }: any) => {
   1. 대답에 대한 피드백
   2. 문제에 대한 모범답안
   `;
+
   const generateBio = async (e: any) => {
     e.preventDefault();
     setGeneratedAnswer("");
@@ -64,7 +73,7 @@ const Question = ({ question, idx }: any) => {
       const chunkValue = decoder.decode(value);
       setGeneratedAnswer((prev) => prev + chunkValue);
     }
-    scrollToBios();
+    scrollToAnswer();
     setLoading(false);
   };
 
@@ -93,9 +102,9 @@ const Question = ({ question, idx }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center">
-        <h1 className="max-w-[708px] text-3xl font-bold text-slate-900 sm:text-5xl">
+        <h2 className="max-w-[708px] text-3xl font-bold text-slate-900 sm:text-5xl">
           GPT 선생님과 기술면접 뽀개기.
-        </h1>
+        </h2>
         <div className="w-full max-w-xl">
           <div className="mt-10 flex items-center space-x-3">
             <p className="text-left font-medium">{`${idx}. ${question}`}</p>

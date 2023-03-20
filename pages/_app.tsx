@@ -12,12 +12,10 @@ const notoSansKR = Noto_Sans_KR({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <main className={`${notoSansKR.variable} min-h-screen font-sans`}>
       <Header />
-      <main className={`${notoSansKR.variable} font-sans`}>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
       <Footer />
-    </>
+    </main>
   );
 }
