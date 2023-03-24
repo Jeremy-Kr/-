@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <title>기술 면접 준비</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mx-auto flex h-[85vh] min-h-full max-w-5xl flex-col items-center justify-center py-2">
+      <div className="mx-auto flex h-[85%] min-h-full max-w-5xl flex-col items-center justify-center py-2">
         <div className="w-full max-w-xl px-4">
           <h1 className="text-center text-3xl font-bold">
             React 기술 면접 문제 목록
